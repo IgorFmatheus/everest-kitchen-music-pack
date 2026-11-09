@@ -1,0 +1,18 @@
+{
+  "id": "everest-kitchen-music-pack",
+  "title": "Everest Kitchen Music Pack",
+  "description": "Biblioteca pessoal de playlists e arquivos de áudio para reutilizar entre mundos.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "maximum": "13"
+  },
+  "packs": [
+    {
+      "name": "musicas",
+      "label": "Everest Kitchen Music Pack",
+      "path": "packs/musicas",
+      "type": "Playlist"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+name: Publicar módulo Foundry
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter arquivos
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validar e preparar pacote
+        run: node scripts/build.mjs
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+
+      - name: Compactar módulo com manifesto na raiz
+        working-directory: dist/package
+        run: zip -q -r ../everest-kitchen-music-pack.zip .
+
+      - name: Criar release com manifesto e ZIP
+        run: gh release create "$RELEASE_TAG" dist/module.json dist/everest-kitchen-music-pack.zip --verify-tag --title "$RELEASE_TAG" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
