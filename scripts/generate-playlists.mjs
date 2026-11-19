@@ -52,7 +52,7 @@ export function scanAudio(projectRoot) {
   return tracks;
 }
 
-export function createPlaylistDocuments(tracks) {
+export function createPlaylistDocuments(tracks, version = '1.1.0') {
   const folders = new Map();
   function folder(key, name, parent = null) {
     if (!folders.has(key)) {
@@ -81,7 +81,7 @@ export function createPlaylistDocuments(tracks) {
       description: 'Gerada automaticamente a partir das pastas do Everest Kitchen Music Pack.',
       folder: folderId, channel, mode: ambient ? -1 : 0, playing: false,
       sorting: 'a', sort: (index + 1) * 100000, fade: 1000, seed: 0,
-      ownership: { default: 0 }, flags: {},
+      ownership: { default: 0 }, flags: { [moduleId]: { sourcePlaylistId: playlistId, group, syncedVersion: version } },
       sounds: [...entries].sort((a, b) => compare(a.relative, b.relative)).map((track, soundIndex) => {
         const soundId = id(`sound:${track.relative}`);
         const fileName = track.relative.split('/').at(-1);
@@ -91,7 +91,8 @@ export function createPlaylistDocuments(tracks) {
           _id: soundId, _key: `!playlists.sounds!${playlistId}.${soundId}`,
           name: fileName.replace(extensions, ''), path: source, channel,
           volume: 0.5, repeat: ambient, playing: false, pausedTime: 0,
-          fade: 1000, sort: (soundIndex + 1) * 100000, description: '', flags: {},
+          fade: 1000, sort: (soundIndex + 1) * 100000, description: '',
+          flags: { [moduleId]: { sourceSoundId: soundId, sourceName: fileName.replace(extensions, '') } },
         };
       }),
     };
@@ -99,9 +100,10 @@ export function createPlaylistDocuments(tracks) {
   return { playlists, folders: [...folders.values()] };
 }
 
-export async function generatePlaylists(projectRoot = root) {
+export async function generatePlaylists(projectRoot = root, { version } = {}) {
   const tracks = scanAudio(projectRoot);
-  const { playlists, folders } = createPlaylistDocuments(tracks);
+  version ??= JSON.parse(fs.readFileSync(path.join(root, 'module.json'), 'utf8')).version;
+  const { playlists, folders } = createPlaylistDocuments(tracks, version);
   const generated = path.join(projectRoot, '.generated');
   fs.mkdirSync(generated, { recursive: true });
   const source = fs.mkdtempSync(path.join(generated, 'playlists-'));

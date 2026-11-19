@@ -81,7 +81,18 @@ https://github.com/IgorFmatheus/everest-kitchen-music-pack/releases/latest/downl
 
 Ative o módulo em cada mundo. Abra o compêndio **Everest Kitchen Music Pack** e importe as playlists desejadas para a aba Playlists de áudio. Elas já incluem faixas, fontes e configurações. Não é necessário criar o compêndio ou montar as playlists no aplicativo.
 
-Atualizações do módulo atualizam o compêndio. Playlists já importadas nos mundos são cópias e precisam ser atualizadas separadamente.
+## Avisos de atualização e sincronização das playlists
+
+A partir da versão 1.1.0, o módulo reconhece as playlists importadas e oferece sincronização com a versão instalada. Importações da v1.0.0 são reconhecidas pela proveniência do compêndio; quando ela não existe, a identificação exige nome correspondente e arquivos desta biblioteca. Não altera playlists apenas porque possuem o mesmo nome.
+
+1. **Nova release:** o MJ principal recebe um popup ao entrar no mundo ou na verificação feita a cada hora. Instale a nova versão pela tela inicial do Foundry, em Add-on Modules.
+2. **Módulo atualizado:** ao voltar ao mundo, um popup oferece atualizar as playlists já importadas, sem importá-las outra vez.
+3. **Verificação manual:** acesse Configurações do jogo → Configurar opções → Opções dos módulos → Everest Kitchen Music Pack → Verificar atualizações / Atualizar playlists. O menu permite consultar releases e sincronizar o compêndio instalado.
+4. **Modo automático opcional:** ative “Sincronizar playlists automaticamente ao entrar”. Depois da atualização do módulo, o MJ principal sincroniza as playlists ao entrar no mundo, sem popup de confirmação. A opção vem desativada.
+
+A sincronização adiciona faixas novas, atualiza as fontes e remove faixas gerenciadas que saíram da biblioteca. Preserva nomes personalizados, pastas, volume, repetição, canal, modo de reprodução e faixas locais. Faixas legadas sem vínculo de gerenciamento não são excluídas automaticamente. Playlists em reprodução ou pausadas são ignoradas; pare-as e use o botão manual para atualizar depois. Playlists de categorias ainda não importadas continuam disponíveis no compêndio e não são criadas automaticamente no mundo.
+
+O módulo não instala arquivos enquanto o mundo está aberto. O aviso orienta a atualização no gerenciador do Foundry; a sincronização usa o compêndio da versão já instalada. Cada mundo mantém suas próprias playlists e precisa passar pela sincronização. Se dispensar o popup, o botão manual continua disponível.
 
 ## Referências
 

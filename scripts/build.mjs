@@ -51,8 +51,8 @@ manifest.download = `${url}/releases/download/${tag}/everest-kitchen-music-pack.
 
 const dist = path.join(root, 'dist');
 if (fs.existsSync(dist)) throw new Error('A pasta dist já existe. Use uma cópia limpa para gerar a release.');
-await generatePlaylists(root);
-const content = [...collect(pack), ...collect(path.join(root, 'audio'))];
+await generatePlaylists(root, { version: manifest.version });
+const content = [...collect(pack), ...collect(path.join(root, 'audio')), ...collect(path.join(root, 'scripts/runtime'))];
 const stage = path.join(dist, 'package');
 fs.mkdirSync(stage, { recursive: true });
 for (const file of content) {
