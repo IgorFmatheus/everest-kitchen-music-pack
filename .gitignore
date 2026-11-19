@@ -1,5 +1,7 @@
 dist/
 node_modules/
+.generated/
+packs/musicas/
 .DS_Store
 Thumbs.db
 packs/**/LOCK

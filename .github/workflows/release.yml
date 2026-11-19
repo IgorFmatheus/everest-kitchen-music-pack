@@ -26,8 +26,14 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Instalar ferramenta de compilação
+        run: npm ci
+
+      - name: Testar geração de playlists
+        run: npm test
+
       - name: Validar e preparar pacote
-        run: node scripts/build.mjs
+        run: npm run build
         env:
           RELEASE_TAG: ${{ github.ref_name }}
 

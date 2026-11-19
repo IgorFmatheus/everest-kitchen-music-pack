@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { generatePlaylists } from './generate-playlists.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const repository = process.env.GITHUB_REPOSITORY;
@@ -29,13 +30,9 @@ function collect(directory) {
 }
 
 const pack = path.join(root, 'packs/musicas');
-if (!fs.existsSync(path.join(pack, 'CURRENT'))) {
-  throw new Error('Falta o compêndio LevelDB: copie packs/musicas do Foundry 13 com o servidor parado. Consulte README.md.');
-}
 const audioFiles = collect(path.join(root, 'audio')).filter(file => /\.(mp3|ogg|opus|wav|flac|webm)$/i.test(file));
 if (!audioFiles.length) throw new Error('Adicione suas músicas à pasta audio antes de publicar.');
-const content = [...collect(pack), ...collect(path.join(root, 'audio'))];
-for (const file of content) {
+for (const file of collect(path.join(root, 'audio'))) {
   const fd = fs.openSync(file, 'r');
   const prefix = Buffer.alloc(128);
   let size;
@@ -54,6 +51,8 @@ manifest.download = `${url}/releases/download/${tag}/everest-kitchen-music-pack.
 
 const dist = path.join(root, 'dist');
 if (fs.existsSync(dist)) throw new Error('A pasta dist já existe. Use uma cópia limpa para gerar a release.');
+await generatePlaylists(root);
+const content = [...collect(pack), ...collect(path.join(root, 'audio'))];
 const stage = path.join(dist, 'package');
 fs.mkdirSync(stage, { recursive: true });
 for (const file of content) {
