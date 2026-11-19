@@ -22,11 +22,11 @@ Músicas e Música Ambiente são as duas divisões principais. Somente Medieval 
 | Músicas / Medieval / Mistério | `audio/musicas/medieval/misterio/` | 2 |
 | Músicas / Medieval / Tavernas | `audio/musicas/medieval/tavernas/` | 1 |
 | Músicas / Medieval / Terror e Necromancia | `audio/musicas/medieval/terror-necromancia/` | 1 |
-| Músicas / Suspense | `audio/musicas/suspense/` | 6 |
+| Músicas / Suspense | `audio/musicas/suspense/` | 5 |
 | Músicas / Terror | `audio/musicas/terror/` | 3 |
 | Músicas / Urbano | `audio/musicas/urbano/` | 6 |
 
-Estado atual: 21 playlists e 40 faixas presentes no disco. O catálogo mantém o histórico da organização inicial; a geração usa as pastas reais, incluindo novas faixas e ignorando as que foram removidas.
+Estado atual: 21 playlists e 39 faixas presentes no disco. O catálogo mantém o histórico da organização inicial; a geração usa as pastas reais, incluindo novas faixas e ignorando as que foram removidas.
 
 ## Geração automática
 

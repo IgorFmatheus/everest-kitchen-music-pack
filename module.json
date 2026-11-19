@@ -2,7 +2,7 @@
   "id": "everest-kitchen-music-pack",
   "title": "Everest Kitchen Music Pack",
   "description": "Biblioteca pessoal de playlists e arquivos de áudio para reutilizar entre mundos.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "esmodules": ["scripts/runtime/updates.mjs"],
   "compatibility": {
     "minimum": "13",

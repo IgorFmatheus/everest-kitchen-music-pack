@@ -289,17 +289,6 @@
       "tipo": "musicas"
     },
     {
-      "origem": "audio/vampire-musics/Buckshot+Roulette+OST+-+General+Release+(extended) [mvkcyB_lve0].mp3",
-      "arquivo": "audio/musicas/suspense/Buckshot+Roulette+OST+-+General+Release+(extended) [mvkcyB_lve0] - copia-02.mp3",
-      "tema": "suspense",
-      "playlistSugerida": "Músicas / Suspense",
-      "caminhoFoundry": "modules/everest-kitchen-music-pack/audio/musicas/suspense/Buckshot%2BRoulette%2BOST%2B-%2BGeneral%2BRelease%2B(extended)%20%5BmvkcyB_lve0%5D%20-%20copia-02.mp3",
-      "bytes": 5063054,
-      "sha256": "7a123fd71eb86efe7f851bab83e3bddb363f07319778f2f3067372fe984ab86e",
-      "caminhoAnterior": "audio/suspense/industrial/Buckshot+Roulette+OST+-+General+Release+(extended) [mvkcyB_lve0] - copia-02.mp3",
-      "tipo": "musicas"
-    },
-    {
       "origem": "audio/vampire-musics/Chiasm - Isolated ( with lyrics ) [uoUCyrg5Syo].mp3",
       "arquivo": "audio/musicas/urbano/Chiasm - Isolated ( with lyrics ) [uoUCyrg5Syo].mp3",
       "tema": "urbano",
@@ -454,6 +443,17 @@
       "bytes": 8830664,
       "sha256": "adf20d1f0e96d5e8449ca1725c8668e74d96fd37bd0c498886eb987a114ad53f",
       "caminhoAnterior": "audio/combate/intenso/Doom Eternal OST - The Only Thing They Fear Is You (Mick Gordon) Doom Eternal Theme(1).mp3",
+      "tipo": "musicas"
+    },
+    {
+      "origem": "audio/vampire-musics/Buckshot+Roulette+OST+-+General+Release+(extended) [mvkcyB_lve0].mp3",
+      "arquivo": "audio/musicas/suspense/Buckshot+Roulette+OST+-+General+Release+(extended) [mvkcyB_lve0] - copia-02.mp3",
+      "tema": "suspense",
+      "playlistSugerida": "Músicas / Suspense",
+      "caminhoFoundry": "modules/everest-kitchen-music-pack/audio/musicas/suspense/Buckshot%2BRoulette%2BOST%2B-%2BGeneral%2BRelease%2B(extended)%20%5BmvkcyB_lve0%5D%20-%20copia-02.mp3",
+      "bytes": 5063054,
+      "sha256": "7a123fd71eb86efe7f851bab83e3bddb363f07319778f2f3067372fe984ab86e",
+      "caminhoAnterior": "audio/suspense/industrial/Buckshot+Roulette+OST+-+General+Release+(extended) [mvkcyB_lve0] - copia-02.mp3",
       "tipo": "musicas"
     }
   ]
